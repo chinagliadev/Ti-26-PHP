@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul.list-unstyled {
+    display: flex;       
+    gap: 10px;           
+    padding-left: 0;   
+      justify-content: center;  
+}
+
+ul.list-unstyled li {
+    list-style: none;    
+}
+
+.exercicio{
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.exercicio h2{
+    color: rgb(0, 98, 155);
+}

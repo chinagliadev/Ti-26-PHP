@@ -6,6 +6,7 @@ $usuario = 'root';
 $senha = ''; 
 $conexaoBanco = new PDO($dsn, $usuario, $senha); 
 onde o DSN define o banco e o host, as variáveis $usuario e $senha armazenam as credenciais do MySQL e o new PDO cria a conexão. Após a conexão, o foreach percorre cada registro retornado: 
+```
 <?php foreach($resultadoConsulta as $linha){ ?> 
 <tr> 
 <th scope="row"><?= $linha['id']?></th> 
@@ -14,4 +15,6 @@ onde o DSN define o banco e o host, as variáveis $usuario e $senha armazenam as
 <td><?= $linha['usuario']?></td> 
 </tr> 
 <?php } ?> 
+
+```
 O foreach permite acessar cada linha de resultado, e $linha['campo'] retorna o valor de cada coluna.

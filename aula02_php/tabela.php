@@ -8,6 +8,20 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Aula 02 - PHP</title>
 </head>
+<?php
+
+$dsn = 'mysql:dbname=db_cadastro;host=127.0.0.1';
+$usuario = 'root';
+$senha = '';
+
+$conexaoBanco = new PDO($dsn, $usuario, $senha);
+
+$scriptConsulta = 'SELECT * FROM tb_usuario';
+
+$resultadoConsulta = $conexaoBanco->query($scriptConsulta)->fetchAll();
+
+?>
+
 
 <body class="bg-light">
     <main class="conteudo-principal container d-flex justify-content-center align-items-center">
@@ -24,72 +38,19 @@
                             <th scope="col">Ações</th>
                         </tr>
                     <tbody class="text-center">
+                        <?php foreach($resultadoConsulta as $linha){?>
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Victor</td>
-                            <td>199983455</td>
-                            <td>_victor</td>
+                            <th scope="row"><?= $linha['id']?></th>
+                            <td><?= $linha['nome']?></td>
+                            <td><?= $linha['telefone']?></td>
+                            <td><?= $linha['usuario']?></td>
                             <td>
                                 <button class="btn btn-primary btn-sm">Abrir</button>
                                 <button class="btn btn-warning btn-sm">Editar</button>
                                 <button class="btn btn-danger btn-sm">Excluir</button>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Ana Silva</td>
-                            <td>11987654321</td>
-                            <td>ana_silva</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Abrir</button>
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Lucas Souza</td>
-                            <td>21999887766</td>
-                            <td>lucas_s</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Abrir</button>
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td>Mariana Costa</td>
-                            <td>31999112233</td>
-                            <td>maricosta</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Abrir</button>
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td>Carlos Mendes</td>
-                            <td>41998765432</td>
-                            <td>cmendes</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Abrir</button>
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">6</th>
-                            <td>Beatriz Lima</td>
-                            <td>51991234567</td>
-                            <td>bia_lima</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">Abrir</button>
-                                <button class="btn btn-warning btn-sm">Editar</button>
-                                <button class="btn btn-danger btn-sm">Excluir</button>
-                            </td>
-                        </tr>
+                        <?php }?>
                     </tbody>
                 </table>
             </div>

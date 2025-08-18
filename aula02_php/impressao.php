@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Aula 02 - PHP</title>
-</head>
-
-<body class="bg-light">
     <?php
-        $nomeFormulario = $_POST['txtNome'];
-        $telefoneForm = $_POST['txtTelefone'];
-        $usuarioForm = $_POST['txtUsuario'];
-        $senhaForm = $_POST['txtSenha'];
-        $senhaConfirmarForm = $_POST['txtConfirmarSenha'];
+    include './template/header.php';
+
+    $dsn = 'mysql:dbname=db_cadastro;host=127.0.0.1';
+    $usuario = 'root';
+    $senha = '';
+
+    $conexaoBanco = new PDO($dsn, $usuario, $senha);
+
+    $id = (int) $_GET['idConsulta'];
+
+    $scriptExibir = "SELECT * FROM tb_usuario where id = $id";
+
+    $resultadoExibir = $conexaoBanco->query($scriptExibir)->fetch();
 
     ?>
     <main class="conteudo-principal container d-flex justify-content-center align-items-center">
@@ -25,11 +21,11 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <h3 class="fs-6 text-dark">Nome</h3>
-                    <span class="text-dark-emphasis fs-5"><?= $nomeFormulario ?></span>
+                    <span class="text-dark-emphasis fs-5"><?= $resultadoExibir['nome'] ?></span>
                 </div>
                 <div class="col-md-6">
                     <h3 class="fs-6 text-dark">Telefone</h3>
-                    <span class="text-dark-emphasis fs-5"><?= $telefoneForm ?></span>
+                    <span class="text-dark-emphasis fs-5"><?= $resultadoExibir['telefone'] ?></span>
                 </div>
             </div>
 
@@ -38,11 +34,11 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <h3 class="fs-6 text-dark">Usuário</h3>
-                    <span class="text-dark-emphasis fs-5"><?= $usuarioForm ?></span>
+                    <span class="text-dark-emphasis fs-5"><?= $resultadoExibir['usuario'] ?></span>
                 </div>
                 <div class="col-md-6">
                     <h3 class="fs-6 text-dark">Senha</h3>
-                    <span class="text-dark-emphasis fs-5"><?= $senhaForm ?></span>
+                    <span class="text-dark-emphasis fs-5"><?= $resultadoExibir['senha'] ?></span>
                 </div>
             </div>
 
@@ -51,15 +47,16 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <h3 class="fs-6 text-dark">Confirmar Senha</h3>
-                    <span class="text-dark-emphasis fs-5"><?=$senhaConfirmarForm?></span>
+                    <span class="text-dark-emphasis fs-5"><?= $resultadoExibir['senha']  ?></span>
                 </div>
             </div>
 
-            <div class="grouo-btn d-flex justify-content-end">
-                <button class="btn btn-primary">Enviar</button>
+            <div class="grouo-btn d-flex justify-content-between">
+                <a href="./tabela.php" class="btn btn-Light">Voltar</a>
+                <a class="btn btn-primary">Enviar</a>
             </div>
         </section>
     </main>
-</body>
-
-</html>
+<?php
+include './template/footer.php';
+?>

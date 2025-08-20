@@ -1,8 +1,6 @@
 <?php
 
 echo '<h1 class="text-center">Form-cadastro.php</h1>';
-var_dump($_POST);
-
 $formNome           = $_POST['txtNome'];
 $formTelefone       = $_POST['txtTelefone'];
 $formUsuario        = $_POST['txtUsuario'];
@@ -40,6 +38,8 @@ if($formSenha != $formConfirmarSenha){
             ':usuario' => $formUsuario,
             ':senha' => $formSenha
         ]);
+        
+        header('location:tabela.php');
 }
 
 

@@ -10,8 +10,8 @@ $senha = '';
 $conn = new PDO($dsn, $usuario, $senha);
 
 $scriptDelete = 'DELETE FROM tb_cadastro WHERE id = :id';
-
 $scriptPreparado = $conn->prepare($scriptDelete);
+
 $scriptPreparado->execute([
     ':id' => $id
 ]);

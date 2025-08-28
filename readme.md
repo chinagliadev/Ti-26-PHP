@@ -1,20 +1,19 @@
-# Aula 02 - Conexão PHP e foreach
+# 🐘 Técnico em Informática - PHP (Conexão e CRUD)
 
-Este código faz uma conexão com um banco de dados MySQL usando PDO e lista todos os registros da tabela tb_usuario em uma tabela HTML. A conexão é feita usando: 
-$dsn = 'mysql:dbname=db_cadastro;host=127.0.0.1'; 
-$usuario = 'root'; 
-$senha = ''; 
-$conexaoBanco = new PDO($dsn, $usuario, $senha); 
-onde o DSN define o banco e o host, as variáveis $usuario e $senha armazenam as credenciais do MySQL e o new PDO cria a conexão. Após a conexão, o foreach percorre cada registro retornado: 
-```
-<?php foreach($resultadoConsulta as $linha){ ?> 
-<tr> 
-<th scope="row"><?= $linha['id']?></th> 
-<td><?= $linha['nome']?></td> 
-<td><?= $linha['telefone']?></td> 
-<td><?= $linha['usuario']?></td> 
-</tr> 
-<?php } ?> 
+Este repositório faz parte dos estudos no curso **Técnico em Informática (SENAC Americana)** e tem como objetivo praticar **PHP** com foco em **conexão ao banco de dados** e desenvolvimento de um **CRUD (Create, Read, Update, Delete)**.
 
-```
-O foreach permite acessar cada linha de resultado, e $linha['campo'] retorna o valor de cada coluna.
+## 🚀 Tecnologias utilizadas
+- **PHP** → Lógica e backend  
+- **MySQL** → Banco de dados  
+- **PDO (PHP Data Objects)** → Conexão segura com o banco  
+- **HTML5 + CSS3** → Estrutura e estilo das páginas  
+
+## 📂 Conteúdo do projeto
+- Conexão ao banco de dados com PDO  
+- Cadastro de registros (Create)  
+- Listagem de registros (Read)  
+- Edição de registros (Update)  
+- Exclusão de registros (Delete)  
+
+## 🎯 Objetivo
+Aprender na prática como funciona a integração entre **PHP e MySQL**, construindo um sistema simples de cadastro com operações CRUD. 

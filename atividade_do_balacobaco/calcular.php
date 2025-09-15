@@ -167,12 +167,12 @@ paresArray([1,66, 4,633,77456,234,14345]);
 
 // 20. Crie uma função que receba um array de números e retorne o segundo maior número do array.
 
-function segundoMaiorNumero($array = []){
-    $arrayOrdenado = sort($array);
-
+function segundoMaiorNumero($array = []) {
+    sort($array); 
     $penultimoElemento = $array[count($array) - 2];
     echo $penultimoElemento;
 }
+
 
 segundoMaiorNumero([1, 55, 23, 1234, 5, 99,32]);
 
